@@ -265,13 +265,13 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
 
     @Override
     public String toModelFilename(String name) {
-        name = toModel("model_" + name);
+        name = toModel(name);
 
         if (isReservedFilename(name)) {
             LOGGER.warn(name + ".go with suffix (reserved word) cannot be used as filename. Renamed to " + name + "_.go");
             name += "_";
         }
-        return name;
+        return "models/" + name;
     }
 
     public String toModel(String name) {
@@ -314,12 +314,18 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
         name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PetApi.go => pet_api.go
-        name = "api_" + underscore(name);
+        name = underscore(name);
+        if (!StringUtils.isEmpty(apiNamePrefix)) {
+            name = apiNamePrefix + "_" + name;
+        }
+        if (!StringUtils.isEmpty(apiNameSuffix)) {
+            name = name.replaceAll(".go", apiNameSuffix + ".go");
+        }
         if (isReservedFilename(name)) {
             LOGGER.warn(name + ".go with suffix (reserved word) cannot be used as filename. Renamed to " + name + "_.go");
             name += "_";
         }
-        return name;
+        return "apis/" + name;
     }
 
     /**
