@@ -271,7 +271,7 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
             LOGGER.warn(name + ".go with suffix (reserved word) cannot be used as filename. Renamed to " + name + "_.go");
             name += "_";
         }
-        return "models/" + name;
+        return name;
     }
 
     public String toModel(String name) {
@@ -325,7 +325,7 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
             LOGGER.warn(name + ".go with suffix (reserved word) cannot be used as filename. Renamed to " + name + "_.go");
             name += "_";
         }
-        return "apis/" + name;
+        return name;
     }
 
     /**

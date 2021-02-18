@@ -76,16 +76,16 @@ public class GoClientCodegenTest {
         final GoDeprecatedClientCodegen codegen = new GoDeprecatedClientCodegen();
 
         // Model names are generated from schema / definition names
-        Assert.assertEquals(codegen.toModelFilename("Animal"), "models/animal");
-        Assert.assertEquals(codegen.toModelFilename("AnimalTest"), "models/animal_test_");
-        Assert.assertEquals(codegen.toModelFilename("AnimalFarm"), "models/animal_farm");
-        Assert.assertEquals(codegen.toModelFilename("AnimalFarmTest"), "models/animal_farm_test_");
+        Assert.assertEquals(codegen.toModelFilename("Animal"), "animal");
+        Assert.assertEquals(codegen.toModelFilename("AnimalTest"), "animal_test_");
+        Assert.assertEquals(codegen.toModelFilename("AnimalFarm"), "animal_farm");
+        Assert.assertEquals(codegen.toModelFilename("AnimalFarmTest"), "animal_farm_test_");
 
         // API names are generated from tag names
-        Assert.assertEquals(codegen.toApiFilename("Animal"), "apis/animal");
-        Assert.assertEquals(codegen.toApiFilename("Animal Test"), "apis/animal_test_");
-        Assert.assertEquals(codegen.toApiFilename("Animal Farm"), "apis/animal_farm");
-        Assert.assertEquals(codegen.toApiFilename("Animal Farm Test"), "apis/animal_farm_test_");
+        Assert.assertEquals(codegen.toApiFilename("Animal"), "animal");
+        Assert.assertEquals(codegen.toApiFilename("Animal Test"), "animal_test_");
+        Assert.assertEquals(codegen.toApiFilename("Animal Farm"), "animal_farm");
+        Assert.assertEquals(codegen.toApiFilename("Animal Farm Test"), "animal_farm_test_");
     }
 
 }
